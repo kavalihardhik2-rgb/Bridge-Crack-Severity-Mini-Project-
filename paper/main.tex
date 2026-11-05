@@ -1,0 +1,87 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx,booktabs,amsmath,hyperref}
+\usepackage[margin=2.5cm]{geometry}
+\graphicspath{{../results_extension/severity/}{../results_extension/localization/}{../results_extension/segmentation/}{../results_extension/}{figures/}}
+
+% Tables come from `python extensions/make_paper_tables.py`. A missing table prints a visible note instead of failing.
+\newcommand{\maybeinput}[1]{\IfFileExists{tables/#1}{\input{tables/#1}}{\textbf{[missing table: \detokenize{#1}]}}}
+
+\title{TODO: working title}
+\author{TODO: authors and affiliations}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+% Write this last, once the numbers are in. State the task, the data, the three additions, and the main
+% result with its numbers, and say that severity labels are proxy labels and that localization and
+% segmentation use weak labels.
+\end{abstract}
+
+\section{Introduction}
+% Why automated crack screening matters. The gap in the original study: it classifies crack / no crack and
+% explicitly leaves out severity, localization and segmentation. What this paper adds, in one paragraph.
+
+\section{Related work}
+% The original SSL study \cite{original_ssl_bridge}, DINOv2 \cite{dinov2}, U-Net \cite{unet}, YOLO
+% \cite{ultralytics_yolo}, and published work on crack detection and segmentation that you have read.
+
+\section{Data}
+% SDNET2018 \cite{sdnet2018}: surfaces, image size, the number of cracked and uncracked images (take the
+% counts from your own run). Photo-aware split: train / validation / test, why it is used, and how it
+% differs from the random split of the original study.
+
+\section{Methods}
+\subsection{Stage 1: crack detection}
+% Frozen DINOv2 ViT-S/14 features and a linear probe, as in the original study.
+
+\subsection{Proxy severity labels}
+% The measurement pipeline (severity/measure_cracks.py), the score, the cut-offs, how the cut-offs were
+% fitted (training split only), and the spot-check against a human reviewer if you did one.
+
+\subsection{Severity classifier}
+% Frozen head with validation-selected regularisation, class-balanced loss, the optional fine-tuning of the
+% last blocks, and the human-review threshold.
+
+\subsection{Weak labels for localization and segmentation}
+% How boxes and masks are generated from the measurement code, how negatives are added, and the preview figure.
+
+\subsection{Localization and segmentation models}
+% YOLO settings and the U-Net (architecture, loss, augmentation, threshold chosen on validation).
+
+\section{Experiments}
+% Metrics: per-class precision, recall, F1, macro-F1, confusion matrix, Severe-as-Minor count for severity;
+% box precision, recall, mAP for localization; IoU and Dice for segmentation. Seeds and hardware.
+
+\section{Results}
+\subsection{Severity}
+\maybeinput{severity_test.tex}
+\maybeinput{severity_critical.tex}
+\maybeinput{severity_frozen_vs_finetuned.tex}
+% \includegraphics[width=0.5\linewidth]{severity_confusion_matrix.png}
+
+\subsection{Localization}
+\maybeinput{localization_test.tex}
+% \includegraphics[width=\linewidth]{localization_examples.png}
+
+\subsection{Segmentation}
+\maybeinput{segmentation_test.tex}
+% \includegraphics[width=0.7\linewidth]{segmentation_examples.png}
+
+% Show failures as well as good cases, and explain them.
+
+\section{Limitations}
+% Image-only assessment cannot establish structural safety. Severity labels are proxies from measured crack
+% extent. Boxes and masks are weak labels, so scores measure agreement with the measurement code. No
+% physical scale calibration, so no real crack widths. Patch-level images from one dataset. Findings about
+% generalisation to other bridges or cameras are not tested.
+
+\section{Conclusion}
+% What was done and what the numbers show, without going beyond them.
+
+\bibliographystyle{plain}
+\bibliography{references}
+\end{document}

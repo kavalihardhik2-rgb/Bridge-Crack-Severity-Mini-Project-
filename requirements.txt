@@ -1,0 +1,14 @@
+# Core dependencies for bridgeSSL
+# Install with: pip install -r requirements.txt
+# Note: Assumes PyTorch is already installed (module load or conda)
+
+numpy>=1.24
+scipy>=1.10
+scikit-learn>=1.2
+pandas>=2.0
+pillow>=9.4
+opencv-python>=4.7
+matplotlib>=3.7
+tqdm>=4.65
+timm>=0.9.0
+einops>=0.6.0

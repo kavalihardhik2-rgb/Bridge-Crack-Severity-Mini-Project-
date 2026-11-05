@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+env/
+
+# Model checkpoints (download separately)
+*.pth
+*.pth.tar
+*.tar
+*.ckpt
+IN1K-vit.h.14-*
+
+# Data
+archive/
+data/
+*.zip
+
+# Intermediate experiment runs
+label_efficiency_*/
+fair_comparison_2*/
+visualizations*/
+
+# OS / IDE
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Logs
+*.log
+
+# Severity and extension outputs (large or machine-specific, regenerate with the scripts)
+*.pt
+*.joblib
+*.npz
+ext_work/
+runs/

@@ -1,0 +1,10 @@
+# Extra dependencies for the severity-assessment extension.
+# Install the repo's main requirements first (pip install -r requirements.txt), plus PyTorch + torchvision.
+scikit-image>=0.21
+joblib>=1.2
+scipy>=1.10
+scikit-learn>=1.2
+pandas>=2.0
+opencv-python>=4.7
+matplotlib>=3.7
+tqdm>=4.65

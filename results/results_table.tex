@@ -1,0 +1,17 @@
+\begin{table}[t]
+\centering
+\caption{Test accuracy on SDNET2018 under different labeled-data budget.}
+\label{tab:label_efficiency}
+\begin{tabular}{c|cc|cc|cc|cc}
+\hline
+\textbf{Labels} & \multicolumn{2}{c|}{\textbf{SUPERVISED ViT (22M)}} & \multicolumn{2}{c|}{\textbf{DINO (22M)}} & \multicolumn{2}{c|}{\textbf{MOCO (22M)}} & \multicolumn{2}{c}{\textbf{MAE ViT (86M)}} \\
+ & \textit{Linear} & \textit{Fine Tune} & \textit{Linear} & \textit{Fine Tune} & \textit{Linear} & \textit{Fine Tune} & \textit{Linear} & \textit{Fine Tune} \\
+\hline
+5% & 91.1 & 93.7 & 93.0 & 93.8 & 92.6 & \textbf{93.9} & 91.7 & 93.6 \\
+10% & 91.7 & 94.3 & 93.4 & 94.2 & 92.8 & \textbf{94.5} & 92.3 & 94.4 \\
+20% & 92.3 & 94.5 & 93.8 & 94.6 & 93.2 & 94.6 & 92.7 & \textbf{94.7} \\
+50% & 92.4 & 94.9 & 94.0 & 94.9 & 93.3 & \textbf{95.1} & 92.9 & \textbf{95.1} \\
+100% & 92.5 & 95.1 & 94.2 & 95.2 & 93.4 & \textbf{95.4} & 92.9 & 95.3 \\
+\hline
+\end{tabular}
+\end{table}
